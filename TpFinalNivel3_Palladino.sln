@@ -5,6 +5,10 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentacionFinal", "PresentacionFinal\PresentacionFinal.csproj", "{49AE7BF3-0198-4F88-A136-0C318EC69679}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datos", "..\programación\c#\TpFinalNivel2_Palladino\Datos\Datos.csproj", "{6FDC631D-9188-4CA5-B5AB-9DD9543B9282}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscosDatos", "..\programación\c#\TpFinalNivel2_Palladino\Soluciones\DiscosDatos.csproj", "{FDF6AD74-FE5C-4CE5-B7DA-A9736CCB06F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{49AE7BF3-0198-4F88-A136-0C318EC69679}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49AE7BF3-0198-4F88-A136-0C318EC69679}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49AE7BF3-0198-4F88-A136-0C318EC69679}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FDC631D-9188-4CA5-B5AB-9DD9543B9282}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FDC631D-9188-4CA5-B5AB-9DD9543B9282}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FDC631D-9188-4CA5-B5AB-9DD9543B9282}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FDC631D-9188-4CA5-B5AB-9DD9543B9282}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDF6AD74-FE5C-4CE5-B7DA-A9736CCB06F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDF6AD74-FE5C-4CE5-B7DA-A9736CCB06F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDF6AD74-FE5C-4CE5-B7DA-A9736CCB06F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDF6AD74-FE5C-4CE5-B7DA-A9736CCB06F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
