@@ -22,14 +22,16 @@ namespace PresentacionFinal
 
         }
 
-        protected void dgv_SelectedIndexChanged(object sender, EventArgs e)
+        protected void dgv_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-
+            dgv.PageIndex = e.NewPageIndex;
+            dgv.DataBind();
         }
 
-        protected void dgv_PageIndexChanged(object sender, EventArgs e)
+        protected void dgv_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            string id = dgv.SelectedDataKey.Value.ToString();
+            Response.Redirect("NuevoArticulo.aspx?id=" + id);
         }
     }
 }

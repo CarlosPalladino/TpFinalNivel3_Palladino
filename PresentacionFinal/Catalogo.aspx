@@ -2,9 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:GridView ID="dgv" runat="server"
-        OnSelectedIndexChanged="dgv_SelectedIndexChanged"
-        AutoGenerateColumns="false" CssClass="table"
-        OnPageIndexChanged="dgv_PageIndexChanged"
+        AutoGenerateColumns="false" CssClass="table" DataKeyNames="Id"
+          OnSelectedIndexChanged="dgv_SelectedIndexChanged"
+          OnPageIndexChanging="dgv_PageIndexChanging"
         AllowPaging="true" PageSize="5">
         <Columns>
             <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
@@ -12,6 +12,7 @@
             <asp:BoundField HeaderText="Marcas" DataField="Marcas" />
             <asp:BoundField HeaderText="Categoria" DataField="Categoria" />
             <asp:BoundField HeaderText="Precio" DataField="Precio" />
+            <asp:CommandField HeaderText="accion" ShowSelectButton="true" SelectText="detalle" />
         </Columns>
 
     </asp:GridView>
