@@ -11,6 +11,8 @@ namespace PresentacionFinal
 {
     public partial class NuevoArticulo : System.Web.UI.Page
     {
+
+        public bool ConfirmarEliminacion { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             txtId.Enabled = false;
@@ -23,7 +25,7 @@ namespace PresentacionFinal
                 if (!IsPostBack)
                 {
 
-                    List<Marcas> list =  marca.listar();
+                    List<Marcas> list = marca.listar();
                     ddlMarca.DataSource = list;
                     ddlMarca.DataValueField = "Id";
                     ddlMarca.DataTextField = "Descripcion";
@@ -37,24 +39,25 @@ namespace PresentacionFinal
                     ddlCategorias.DataTextField = "Descripcion";
                     ddlCategorias.DataBind();
                 }
-                if (Request.QueryString["id"]  != null) { 
-                
+                if (Request.QueryString["id"] != null)
+                {
+
                     Metodos metodo = new Metodos();
                     List<Articulos> lista = metodo.listar(Request.QueryString["id"].ToString());
                     Articulos seleccion = lista[0];
                     txtId.Text = seleccion.Id.ToString();
                     txtNombre.Text = seleccion.Nombre;
-                    txtDescripcion.Text =seleccion.Descripcion;
+                    txtDescripcion.Text = seleccion.Descripcion;
                     txtCodigo.Text = seleccion.Codigo;
                     txtPrecio.Text = seleccion.Precio.ToString();
 
                     ddlCategorias.SelectedValue = seleccion.Categoria.Id.ToString();
                     ddlMarca.SelectedValue = seleccion.Marcas.Id.ToString();
-                    txtImagenUrl_TextChanged(sender,e);
+                    txtImagenUrl_TextChanged(sender, e);
                 }
 
             }
-            catch (Exception )
+            catch (Exception)
             {
 
                 Session.Add("Error.aspx", false);
@@ -74,11 +77,11 @@ namespace PresentacionFinal
                 nuevo.Precio = decimal.Parse(txtPrecio.Text.ToString());
                 nuevo.Marcas = new Marcas();
                 nuevo.Marcas.Id = int.Parse(ddlMarca.SelectedValue);
-                nuevo.Categoria = new Categorias(); 
+                nuevo.Categoria = new Categorias();
                 nuevo.Categoria.Id = int.Parse(ddlCategorias.SelectedValue);
-                
+
                 metodos.agregar(nuevo);
-                if(Request.QueryString["id"] != null)
+                if (Request.QueryString["id"] != null)
                 {
                     metodos.modificar(nuevo);
                 }
@@ -108,6 +111,36 @@ namespace PresentacionFinal
                 throw;
             }
 
+        }
+
+
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+            ConfirmarEliminacion = true;
+
+        }
+
+        protected void btnConfirmarEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (chkConfirmarEliminacion.Checked)
+                {
+
+                    Metodos metodo = new Metodos();
+                    metodo.eliminar(int.Parse(txtId.Text));
+                    Response.Redirect("Catalogo.aspx", false);
+                }
+
+
+            }
+            catch (Exception)
+            {
+                Session.Add("Error.aspx", false);
+                throw;
+            }
         }
     }
 }
