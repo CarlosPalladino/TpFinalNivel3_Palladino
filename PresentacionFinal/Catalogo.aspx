@@ -18,7 +18,6 @@
                 <asp:DropDownList ID="ddlCampo" OnSelectedIndexChanged="dllCampo_SelectedIndexChanged"
                     runat="server" CssClass="form-control"
                     AutoPostBack="true">
-
                     <asp:ListItem Text="Nombre"></asp:ListItem>
                     <asp:ListItem Text="Precio"></asp:ListItem>
                     <asp:ListItem Text="Descripcion"></asp:ListItem>

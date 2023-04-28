@@ -69,12 +69,13 @@ namespace PresentacionFinal
 
         protected void dllCampo_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             ddlCriterio.Items.Clear();
 
             if (ddlCampo.SelectedItem.ToString() == "Precio")
             {
                 ddlCriterio.Items.Add("Mayor a");
-                ddlCriterio.Items.Add(" menor a ");
+                ddlCriterio.Items.Add("menor a");
                 ddlCriterio.Items.Add("igual a");
             }
             else
