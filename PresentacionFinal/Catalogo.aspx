@@ -47,17 +47,6 @@
         </div>
     </div>
     <% } %>
-
-
-
-
-
-
-
-
-
-
-
     <asp:GridView ID="dgv" runat="server"
         AutoGenerateColumns="false" CssClass="table" DataKeyNames="Id"
         OnSelectedIndexChanged="dgv_SelectedIndexChanged"

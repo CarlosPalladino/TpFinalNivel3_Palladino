@@ -42,23 +42,7 @@ namespace PresentacionFinal
 
 
 
-        protected void btnBuscar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Metodos metodo = new Metodos();
-                dgv.DataSource = metodo.Filtro(ddlCampo.SelectedItem.ToString(),
-                    ddlCriterio.SelectedItem.ToString(), txtFiltroAvanzado.Text);
-                dgv.DataBind();
-
-
-            }
-            catch (Exception)
-            {
-                Session.Add("error.asppx", false);
-
-            }
-        }
+       
 
 
         protected void chkAvanzado_CheckedChanged1(object sender, EventArgs e)
@@ -83,6 +67,23 @@ namespace PresentacionFinal
                 ddlCriterio.Items.Add("Empieza con");
                 ddlCriterio.Items.Add("Termia con");
                 ddlCriterio.Items.Add("Contiene ..");
+
+            }
+        }
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Metodos metodo = new Metodos();
+                dgv.DataSource = metodo.Filtro(ddlCampo.SelectedItem.ToString(),
+                    ddlCriterio.SelectedItem.ToString(), txtFiltroAvanzado.Text);
+                dgv.DataBind();
+
+
+            }
+            catch (Exception)
+            {
+                Session.Add("error.asppx", false);
 
             }
         }

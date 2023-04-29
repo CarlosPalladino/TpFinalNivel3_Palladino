@@ -53,6 +53,7 @@
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/About">Perfil</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Favoritos</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Login.aspx">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Registro.aspx">Registro</a></li>
 
                     </ul>
                 </div>
