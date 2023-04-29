@@ -19,15 +19,14 @@
             <div class="mb-3">
                 <label for="txtNombre" class="form-label">Nombre</label>
                 <asp:TextBox runat="server" ID="txtNombre" CssClass="form-control" />
-                <asp:RequiredFieldValidator ErrorMessage="el nombre es requerido " MinimumValue="2" MaximumValue="20"  ControlToValidate="txtNombre" runat="server" />
+                <asp:RequiredFieldValidator ErrorMessage="el nombre es requerido " MinimumValue="2" MaximumValue="20" ControlToValidate="txtNombre" runat="server" />
 
             </div>
             <div class="mb-3">
                 <label for="txtApellido" class="form-label">Apellido</label>
-                <asp:TextBox runat="server" ClientIDMode="Static" ID="txtApellido" CssClass="form-control" />
+                <asp:TextBox runat="server" ID="txtApellido" CssClass="form-control" />
+                <asp:RequiredFieldValidator ErrorMessage="el apellido es requerido " MinimumValue="2" MaximumValue="10" ControlToValidate="txtApellido" runat="server" />
 
-                <asp:RangeValidator ErrorMessage="fuera de rango" MinimumValue="2" MaximumValue="20" Type="Integer" ControlToValidate="txtApellido" runat="server" />
-                <asp:RegularExpressionValidator ErrorMessage="Solo numeros" ValidationExpression="^[0-9]+$" ControlToValidate="txtApellido" runat="server" />
 
             </div>
 
@@ -55,6 +54,16 @@
                 <label for="ddlTipos" class="form-label">Fecha de nacimiento</label>
                 <asp:TextBox ID="txtFechaNacimiento" TextMode="Date" CssClass="form-control" runat="server" />
             </div>
+            <div class="mb-3">
+                <label for="txtPassword" class="form-label">pass</label>
+                <asp:TextBox runat="server" ID="txtPassword" TextMode="Password" CssClass="form-control" />
+                <asp:RequiredFieldValidator ErrorMessage="la contraseña es requerido " MinimumValue="2" MaximumValue="10" ControlToValidate="txtPassword" runat="server" />
+
+
+
+            </div>
+
+
 
         </div>
     </div>
