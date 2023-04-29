@@ -12,7 +12,7 @@ namespace DiscosDatos
 {
     public class Metodos
     {
-        public List<Articulos> listar(string id = "")
+        public List<Articulos> listar( string id="")
         {
 
             List<Articulos> lista = new List<Articulos>();
@@ -22,11 +22,9 @@ namespace DiscosDatos
 
             try
             {
-                conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_WEB_DB; integrated security=true";
+                conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_DB; integrated security=true";
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "select A.Id, Codigo,Nombre,A.Descripcion ,ImagenUrl,Precio,A.IdCategoria,A.IdMarca,C.Descripcion Categoria, M.Descripcion Marca from ARTICULOS A ,CATEGORIAS C , MARCAS M where IdCategoria = C.Id and IdMarca = M.Id ";
-                if (id != "")
-                    comando.CommandText += " and A.Id = " + id;
+                comando.CommandText = "select A.Id,Codigo,Nombre,A.Descripcion ,ImagenUrl,Precio,A.IdCategoria,A.IdMarca,C.Descripcion Categoria, M.Descripcion Marca from ARTICULOS A ,CATEGORIAS C , MARCAS M";
                 comando.Connection = conexion;
                 conexion.Open();
                 lector = comando.ExecuteReader();
@@ -135,7 +133,6 @@ namespace DiscosDatos
             }
         }
 
-
         public List<Articulos> Filtro(string campo, string criterio, string filtro)
         {
             List<Articulos> lista = new List<Articulos>();
@@ -158,7 +155,7 @@ namespace DiscosDatos
                             consulta += "Precio = " + filtro;
                             break;
                     }
-                }
+                }          
                 else if (campo == "Nombre")
                 {
                     switch (criterio)

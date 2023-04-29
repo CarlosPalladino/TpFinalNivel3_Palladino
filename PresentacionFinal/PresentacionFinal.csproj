@@ -267,11 +267,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\programación\c#\TpFinalNivel2_Palladino\Datos\Datos.csproj">
+    <ProjectReference Include="..\Datos\Datos.csproj">
       <Project>{6fdc631d-9188-4ca5-b5ab-9dd9543b9282}</Project>
       <Name>Datos</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\programación\c#\TpFinalNivel2_Palladino\Soluciones\DiscosDatos.csproj">
+    <ProjectReference Include="..\Soluciones\DiscosDatos.csproj">
       <Project>{fdf6ad74-fe5c-4ce5-b7da-a9736ccb06f0}</Project>
       <Name>DiscosDatos</Name>
     </ProjectReference>

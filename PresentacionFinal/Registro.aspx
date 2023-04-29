@@ -50,10 +50,7 @@
 
                 </ContentTemplate>
             </asp:UpdatePanel>
-            <div class="mb-3">
-                <label for="ddlTipos" class="form-label">Fecha de nacimiento</label>
-                <asp:TextBox ID="txtFechaNacimiento" TextMode="Date" CssClass="form-control" runat="server" />
-            </div>
+
             <div class="mb-3">
                 <label for="txtPassword" class="form-label">pass</label>
                 <asp:TextBox runat="server" ID="txtPassword" TextMode="Password" CssClass="form-control" />
@@ -61,6 +58,11 @@
 
 
 
+            </div>
+            <div class="mb-3">
+                                <label for="CHKaDMIN" class="form-label">QUERES SER PARTE  ?</label>
+
+                <asp:CheckBox runat="server" ID="chkAdmin"   OnCheckedChanged="chkAdmin_CheckedChanged"/>
             </div>
 
 
