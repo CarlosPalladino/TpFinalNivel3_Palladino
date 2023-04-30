@@ -30,6 +30,7 @@ namespace Soluciones
                 datos.ejecutarAccion();
 
 
+
             }
             catch (Exception ex)
             {
@@ -40,7 +41,39 @@ namespace Soluciones
 
         }
 
+        public bool Login(Users usuario)
+        {
 
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("select  Id, Email, Pass ,Admin from users  where Email = @email And Pass = @pass ");
+                datos.setearParametro("@email", usuario.Email);
+                datos.setearParametro("@pass", usuario.Pass);
+                datos.ejecutarLectura();
+                if (datos.Lector.Read())
+                {
+                    usuario.id = (int)datos.Lector["id"];
+
+                    usuario.Admin = (bool)datos.Lector["admin"];
+
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+            finally
+            {
+                datos.cerrarLectura();
+            }
+
+
+        }
 
         public bool Admin()
         {
@@ -48,6 +81,9 @@ namespace Soluciones
             Users usuario = new Users();
             try
             {
+                // el que lleva el email es txtEmail. 
+
+
 
                 if (usuario.Email.Contains("@admin.com"))
 
@@ -55,7 +91,7 @@ namespace Soluciones
                 else
 
                 {
-                    usuario.Admin = false;  
+                    usuario.Admin = false;
                 }
                 return false;
 

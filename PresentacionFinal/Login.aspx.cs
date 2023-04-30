@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DiscosDatos;
 using Soluciones;
+using Datos;
 
 namespace PresentacionFinal
 {
@@ -13,22 +14,38 @@ namespace PresentacionFinal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            UsersMetodos metodos = new UsersMetodos();            
+            UsersMetodos metodos = new UsersMetodos();
+            Users usuarios = new Users();
+
             try
             {
+                usuarios.Email = txtEmail.Text;
+                usuarios.Pass = txtPassword.Text;
+                if (metodos.Login(usuarios))
+                {
+                    Session.Add("usuarios", usuarios);
+                    Response.Redirect("Default.aspx", false);
+                }
+                else
+                {
+                    Session.Add("Error.aspx", "user o pass incorrecto ");
+                    Response.Redirect("Error.aspx", false);
+                }
 
 
             }
-            catch (Exception )
+            catch (Exception)
             {
                 Session.Add("Error.aspx", false);
-                
+
             }
         }
+
+
     }
 }

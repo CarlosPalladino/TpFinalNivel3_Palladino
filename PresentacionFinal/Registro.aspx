@@ -11,9 +11,10 @@
         <div class="col-4">
 
             <div class="mb-3">
+            
                 <label for="txtEmail" class="form-label">Email</label>
-                <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" />
-                <asp:RegularExpressionValidator ErrorMessage="formato de email  requerido" ControlToValidate="txtEmail" runat="server" type="Email" ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" />
+                <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control"  />
+                <asp:RegularExpressionValidator ErrorMessage="formato de email  requerido"   ControlToValidate="txtEmail" runat="server" type="Email" ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" />
 
             </div>
             <div class="mb-3">
@@ -60,7 +61,7 @@
 
             </div>
             <div class="mb-3">
-                                <label for="CHKaDMIN" class="form-label">QUERES SER PARTE  ?</label>
+                                <label for="CHKaDMIN" class="form-label">Queres ser participante ? </label>
 
                 <asp:CheckBox runat="server" ID="chkAdmin"   OnCheckedChanged="chkAdmin_CheckedChanged"/>
             </div>

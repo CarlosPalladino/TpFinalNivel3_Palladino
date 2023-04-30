@@ -2,23 +2,21 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <asp:Label runat="server" ID="" CssClass ="form-label">email</asp:Label>
-            <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server" />
+    <div class="mb-3">
+        <asp:Label runat="server"  CssClass="form-label" Text="Email" />
+        <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server" />
+        <asp:RequiredFieldValidator ErrorMessage="Tienes que ser introducir un formate de mail válido " ControlToValidate="txtEmail" runat="server" ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" />
 
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <asp:Label runat="server" CssClass="form-label" >Contraseña</asp:Label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
-            <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" ></asp:TextBox>
-        </div>
-       
-        <button type="submit" class="btn btn-primary">Submit</button>
-    <asp:Button ID="btnLogin" OnClick="btnLogin_Click" runat="server" />
+    </div>
+    <div class="mb-3">
+        <asp:Label runat="server" CssClass="form-label" Text="Contraseña"/>
+        <asp:TextBox ID="txtPassword" TextMode="Password" runat="server"/>
+
+        <asp:RequiredFieldValidator ErrorMessage="Tienes que introducir una contraseña válida "  ControlToValidate="txtPassword" runat="server" />
+
+    </div>
+
+    <asp:Button ID="btnLogin"  class="btn btn-primary" OnClick="btnLogin_Click" Text="Loguearse" runat="server" />
 
 
 

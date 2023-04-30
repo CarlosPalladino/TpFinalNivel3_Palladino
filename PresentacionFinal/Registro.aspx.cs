@@ -27,7 +27,7 @@ namespace PresentacionFinal
                 Users usuario = new Users();
                 usuario.Nombre = txtNombre.Text;
                 usuario.Pass =txtPassword.Text;
-                usuario.Email =txtEmail.Text;
+                usuario.Email =txtEmail.Text; // aca iria el otro
                 usuario.UrlImagenPerfil = "pefil-" + usuario.Email + ".jpg";
                 usuario.Admin = chkAdmin.Checked;
                 txtImage.PostedFile.SaveAs(ruta + "perfil-" + usuario.Email +".jpg");
