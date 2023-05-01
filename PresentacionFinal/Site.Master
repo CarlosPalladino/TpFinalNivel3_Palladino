@@ -48,12 +48,26 @@
                 </button>
                 <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
+
+
+                        <% 
+                            if (DiscosDatos.Seguridad.Logueado(Session["usuarios"]))
+                            {%>
+                        <a class="nav-link" runat="server" href="~/Registro.aspx">registro</a></>
+                       <a class="nav-link" runat="server" href="~/Login.aspx">Login</a></>
+                        <%
+                            }
+                            else
+                            {
+                        %>
+                        <asp:Button Text="Salir" ID="btnSalir" runat="server"  OnClick="btnSalir_Click" CssClass="btn btnf-primary me-2" />
                         <li class="nav-item"><a class="nav-link" runat="server" href="/Catalogo.aspx">Catalogo</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="/NuevoArticulo.aspx">Nuevo Articulo</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/About">Perfil</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Registro.aspx">Perfil</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Favoritos</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Login.aspx">Login</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Registro.aspx">Registro</a></li>
+                        <%                      
+                            } %>
+
 
                     </ul>
                 </div>
