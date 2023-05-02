@@ -51,7 +51,7 @@
 
 
                         <% 
-                            if (DiscosDatos.Seguridad.Logueado(Session["usuarios"]))
+                            if (!DiscosDatos.Seguridad.Logueado(Session["usuarios"]))
                             {%>
                         <a class="nav-link" runat="server" href="~/Registro.aspx">registro</a></>
                        <a class="nav-link" runat="server" href="~/Login.aspx">Login</a></>
@@ -60,7 +60,7 @@
                             else
                             {
                         %>
-                        <asp:Button Text="Salir" ID="btnSalir" runat="server"  OnClick="btnSalir_Click" CssClass="btn btnf-primary me-2" />
+                        <asp:Button Text="Salir" ID="btnSalir" runat="server"  OnClick="btnSalir_Click" CssClass="btn btn-danger " />
                         <li class="nav-item"><a class="nav-link" runat="server" href="/Catalogo.aspx">Catalogo</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="/NuevoArticulo.aspx">Nuevo Articulo</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Registro.aspx">Perfil</a></li>

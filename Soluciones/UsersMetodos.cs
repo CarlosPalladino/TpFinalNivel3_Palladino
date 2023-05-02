@@ -5,13 +5,52 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Datos;
+
 using static System.Net.Mime.MediaTypeNames;
+using System.Data.SqlClient;
 
 namespace Soluciones
 {
     public class UsersMetodos
     {
+        public List<Users> listar(string id = "")
+        {
+            AccesoDatos datos = new AccesoDatos();
+            List<Users> lista = new List<Users>();
+            SqlConnection conexion = new SqlConnection();
+            SqlCommand comando = new SqlCommand();
+            SqlDataReader lector;
+            try
+            {
+                conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_WEB_DB; integrated security=true";
+                comando.CommandType = System.Data.CommandType.Text;
+                datos.setearConsulta("select Id ,UrlImagenPerfil,Nombre,Apellido ,Email,Password,Admin and ");
+                if (id != null)
+                    comando.CommandText += "and id = " + id;
+                comando.Connection = conexion;
+                lector = comando.ExecuteReader();
+                while (lector.Read())
+                {
+                    Users user = new Users();
 
+                    user.id = (int)lector["id"];
+                    user.UrlImagenPerfil = (string)lector["UrlImagenPerfil"];
+                    user.Nombre = (string)lector["nombre"];
+                    user.Apellido = (string)lector["apellido"];
+                    user.Admin = (bool)lector["admin"];
+                    user.Pass = (string)lector["pass"];
+
+                    lista.Add(user);
+                }
+                conexion.Close();
+                return lista;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
         public void Nuevo(Users users)
         {
@@ -38,6 +77,31 @@ namespace Soluciones
                 throw ex;
             }
 
+
+        }
+
+
+        public void Actualizar(Users user)
+        {
+
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("Update Users set UrlImagenPerfil = @imagen,Nombre = @nombre,Apellido= @apellido ,Password = @pass Where id =@id ");
+                datos.setearParametro("@imagen", user.UrlImagenPerfil);
+                datos.setearParametro("@nombre", user.Nombre);
+                datos.setearParametro("@apellido", user.Apellido);
+                datos.setearParametro("@pass", user.Pass);
+
+                datos.ejecutarLectura();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
 
         }
 

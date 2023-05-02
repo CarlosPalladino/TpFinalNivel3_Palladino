@@ -10,7 +10,7 @@
     </div>
     <div class="mb-3">
         <asp:Label runat="server" CssClass="form-label" Text="Contraseña"/>
-        <asp:TextBox ID="txtPassword" TextMode="Password" runat="server"/>
+        <asp:TextBox ID="txtPassword"   CssClass="form-control" TextMode="Password" runat="server"/>
 
         <asp:RequiredFieldValidator ErrorMessage="Tienes que introducir una contraseña válida "  ControlToValidate="txtPassword" runat="server" />
 

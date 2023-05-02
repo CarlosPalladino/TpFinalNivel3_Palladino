@@ -12,7 +12,7 @@ namespace DiscosDatos
             try
             {
                 Users user = users != null ? (Users)users : null;
-                if (!(user != null && user.id != 0))
+                if (user != null && user.id != 0)
                     return true;
                 else 
                     return false;

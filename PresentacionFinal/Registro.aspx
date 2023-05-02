@@ -11,10 +11,10 @@
         <div class="col-4">
 
             <div class="mb-3">
-            
+
                 <label for="txtEmail" class="form-label">Email</label>
-                <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control"  />
-                <asp:RegularExpressionValidator ErrorMessage="formato de email  requerido"   ControlToValidate="txtEmail" runat="server" type="Email" ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" />
+                <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" />
+                <asp:RegularExpressionValidator ErrorMessage="formato de email  requerido" ControlToValidate="txtEmail" runat="server" type="Email" ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" />
 
             </div>
             <div class="mb-3">
@@ -39,11 +39,16 @@
         </div>
         <div class="col-6">
 
-
+            
             <asp:UpdatePanel ID="UpdatePannel1" runat="server">
                 <ContentTemplate>
                     <div class="mb-3">
+                        <label for="txtId" class="form-label">Id</label>
+                        <asp:TextBox runat="server" ID="txtId" CssClass="form-control" />
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label">Url Imagen</label>
+                        <asp:TextBox ID="txtImagen" runat="server" CssClass="form-control" />
                         <input type="file" id="txtImage" runat="server" class="form-control" />
                     </div>
                     <asp:Image ImageUrl="https://comunidades.cepal.org/ilpes/sites/default/files/users/pictures/default_0.png"
@@ -61,9 +66,9 @@
 
             </div>
             <div class="mb-3">
-                                <label for="CHKaDMIN" class="form-label">Queres ser participante ? </label>
+                <label for="CHKaDMIN" class="form-label">Queres ser participante ? </label>
 
-                <asp:CheckBox runat="server" ID="chkAdmin"   OnCheckedChanged="chkAdmin_CheckedChanged"/>
+                <asp:CheckBox runat="server" ID="chkAdmin" OnCheckedChanged="chkAdmin_CheckedChanged" />
             </div>
 
 
