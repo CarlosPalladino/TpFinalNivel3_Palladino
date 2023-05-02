@@ -101,5 +101,19 @@ namespace PresentacionFinal
                 throw ex;
             }
         }
+
+        protected void txtImagen_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+            imgNuevoPerfil.ImageUrl = txtImagen.Text;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

@@ -15,6 +15,18 @@ namespace PresentacionFinal
         public bool ConfirmarEliminacion { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
+
+
+            if (!Seguridad.Logueado(Session["usuarios"]))
+            {
+                Response.Redirect("Login.aspx", false);
+            }
+
+                
+        
+
             txtId.Enabled = false;
             try
             {

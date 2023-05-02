@@ -11,7 +11,7 @@
 
     <%if (filtroAvanzado)
         {%>
-    <div class=" row">
+    <div class="row">
         <div class="col-3">
             <div class="mb-3">
                 <asp:Label Text="Campo" runat="server"></asp:Label>
@@ -24,43 +24,47 @@
                 </asp:DropDownList>
             </div>
         </div>
-    </div>
-    <div class="col-3">
-        <div class="mb-3">
-            <asp:Label Text="Criterio" runat="server" />
-            <asp:DropDownList ID="ddlCriterio" CssClass="form-control" runat="server">
-            </asp:DropDownList>
+        <div class="col-3">
+            <div class="mb-3">
+                <asp:Label Text="Criterio" runat="server" />
+                <asp:DropDownList ID="ddlCriterio" CssClass="form-control" runat="server">
+                </asp:DropDownList>
+            </div>
         </div>
-    </div>
-    <div class="col-3">
-        <div clas="mb-3">
-            <asp:Label Text="Filtro" runat="server" />
-            <asp:TextBox ID="txtFiltroAvanzado" runat="server"></asp:TextBox>
+        <div class="col-3">
+            <div clas="mb-3">
+                <asp:Label Text="Filtro" runat="server" />
+                <asp:TextBox ID="txtFiltroAvanzado" CssClass="form-control" runat="server"></asp:TextBox>
 
+            </div>
         </div>
-    </div>
 
-    <div clkas="col-3">
-        <div class="mb-3">
-            <asp:Button ID="btnBuscar" Text="Buscar" runat="server" CssClass="btn btn-primary" OnClick="btnBuscar_Click" />
+        <div clkas="col-3">
+            <div class="mb-3">
+                <asp:Button ID="btnBuscar" Text="Buscar" runat="server" CssClass="btn btn-primary" OnClick="btnBuscar_Click" />
+                <asp:Button ID="btnReset" Text="Buscar" runat="server" CssClass="btn btn-primary"  OnClick="btnReset_Click"/>
 
+            </div>
         </div>
+        <% } %>
     </div>
-    <% } %>
-    <asp:GridView ID="dgv" runat="server"
-        AutoGenerateColumns="false" CssClass="table" DataKeyNames="Id"
-        OnSelectedIndexChanged="dgv_SelectedIndexChanged"
-        OnPageIndexChanging="dgv_PageIndexChanging"
+    <h1>Lista de Articulos</h1>
+    <asp:GridView runat="server" ID="dgv"
+        AutoGenerateColumns="false" DataKeyNames="Id" CssClass="table"
+        OnSelectedIndexChanged="dgv_SelectedIndexChanged1"
+        OnPageIndexChanging="dgv_PageIndexChanging1"
         AllowPaging="true" PageSize="5">
         <Columns>
+
             <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
             <asp:BoundField HeaderText="Descripcion" DataField="Descripcion" />
             <asp:BoundField HeaderText="Marcas" DataField="Marcas" />
             <asp:BoundField HeaderText="Categoria" DataField="Categoria" />
             <asp:BoundField HeaderText="Precio" DataField="Precio" />
-            <asp:CommandField HeaderText="accion" ShowSelectButton="true" SelectText="detalle" />
+            <asp:CommandField HeaderText="accion" ShowSelectButton="true" SelectText="Modificar" />
         </Columns>
-
     </asp:GridView>
-    <a href="NuevoArticulo.aspx" class="btn btn primary">Ingresar Nuevo Articulo</a>
+
+
+    <a href="NuevoArticulo.aspx" class="btn btn-primary text-xl-center">Nuevo Articulo</a>
 </asp:Content>

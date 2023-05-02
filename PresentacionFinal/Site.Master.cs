@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DiscosDatos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,11 @@ namespace PresentacionFinal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Page is Catalogo || Page is NuevoArticulo)
+            {
+                Seguridad.Logueado(Session["usuarios"]);
+                Session.Add("error", "a donde queres ir  ?");
+            }
 
         }
 

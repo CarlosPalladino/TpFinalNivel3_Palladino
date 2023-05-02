@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="PresentacionFinal._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h1>welcome to the default base</h1>
+    <h1>esta es la pagina principal-base</h1>
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <asp:Repeater ID="repetidor" runat="server">

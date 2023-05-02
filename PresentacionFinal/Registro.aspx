@@ -14,6 +14,7 @@
 
                 <label for="txtEmail" class="form-label">Email</label>
                 <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" />
+
                 <asp:RegularExpressionValidator ErrorMessage="formato de email  requerido" ControlToValidate="txtEmail" runat="server" type="Email" ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" />
 
             </div>
@@ -48,11 +49,11 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Url Imagen</label>
-                        <asp:TextBox ID="txtImagen" runat="server" CssClass="form-control" />
-                        <input type="file" id="txtImage" runat="server" class="form-control" />
+                        <asp:TextBox ID="txtImagen" runat="server"  OnTextChanged="txtImagen_TextChanged" CssClass="form-control" />
+                        <input type="file" id="txtImage"  runat="server" class="form-control" />
                     </div>
-                    <asp:Image ImageUrl="https://comunidades.cepal.org/ilpes/sites/default/files/users/pictures/default_0.png"
-                        runat="server" ID="imgNuevoPerfil" Width="60%" />
+                    <asp:Image  ImageUrl="https://comunidades.cepal.org/ilpes/sites/default/files/users/pictures/default_0.png"
+                         runat="server" ID="imgNuevoPerfil" Width="60%" />
 
                 </ContentTemplate>
             </asp:UpdatePanel>
@@ -60,13 +61,15 @@
             <div class="mb-3">
                 <label for="txtPassword" class="form-label">pass</label>
                 <asp:TextBox runat="server" ID="txtPassword" TextMode="Password" CssClass="form-control" />
-                <asp:RequiredFieldValidator ErrorMessage="la contraseña es requerido " MinimumValue="2" MaximumValue="10" ControlToValidate="txtPassword" runat="server" />
+                <asp:RegularExpressionValidator  ErrorMessage="Solo numero por favor" ControlToValidate="txtPassword" runat="server" ValidationExpression="^[0-9]+$
+" />
+                <asp:RequiredFieldValidator ErrorMessage="la contraseña es requerido " MinimumValue="2"  MaximumValue="10" ControlToValidate="txtPassword" runat="server" />
 
 
 
             </div>
             <div class="mb-3">
-                <label for="CHKaDMIN" class="form-label">Queres ser participante ? </label>
+                <label for="CHKaDMIN" class="form-label">Queres ser participante ? te permite poder agregar nuevos articulos . . </label>
 
                 <asp:CheckBox runat="server" ID="chkAdmin" OnCheckedChanged="chkAdmin_CheckedChanged" />
             </div>
@@ -74,6 +77,6 @@
 
 
         </div>
-    </div>
 
 </asp:Content>
+

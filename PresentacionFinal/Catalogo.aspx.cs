@@ -14,37 +14,36 @@ namespace PresentacionFinal
         public bool filtroAvanzado { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            filtroAvanzado = chkAvanzado.Checked;
-            if (!IsPostBack)
+
+
+            if (!Seguridad.Logueado(Session["usuarios"]))
             {
-                Metodos datos = new Metodos();
-                dgv.DataSource = datos.listar();
-                dgv.DataBind();
-
-
+                Response.Redirect("Login.aspx", false);
             }
 
 
 
+            filtroAvanzado = chkAvanzado.Checked;
+
+            Metodos datos = new Metodos();
+            dgv.DataSource = datos.listar();
+            dgv.DataBind();
+
+
         }
 
-        protected void dgv_PageIndexChanging(object sender, GridViewPageEventArgs e)
+
+        protected void dgv_PageIndexChanging1(object sender, GridViewPageEventArgs e)
         {
             dgv.PageIndex = e.NewPageIndex;
             dgv.DataBind();
         }
 
-        protected void dgv_SelectedIndexChanged(object sender, EventArgs e)
+        protected void dgv_SelectedIndexChanged1(object sender, EventArgs e)
         {
             string id = dgv.SelectedDataKey.Value.ToString();
             Response.Redirect("NuevoArticulo.aspx?id=" + id);
         }
-
-
-
-       
-
-
         protected void chkAvanzado_CheckedChanged1(object sender, EventArgs e)
         {
             filtroAvanzado = chkAvanzado.Checked;
@@ -86,6 +85,11 @@ namespace PresentacionFinal
                 Session.Add("error.asppx", false);
 
             }
+        }
+
+        protected void btnReset_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
