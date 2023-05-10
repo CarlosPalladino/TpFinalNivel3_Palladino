@@ -23,6 +23,8 @@ namespace Soluciones
             try
             {
                 conexion = new SqlConnection(ConfigurationManager.AppSettings["cadenaConexion"]);
+               
+
                 comando.CommandType = System.Data.CommandType.Text;
                 datos.setearConsulta("select Id ,UrlImagenPerfil,Nombre,Apellido ,Email,Password,Admin and ");
                 if (id != null)

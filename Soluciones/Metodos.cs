@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,8 @@ namespace DiscosDatos
 {
     public class Metodos
     {
-        public List<Articulos> listar( string id="")
+
+        public List<Articulos> listar(string id = "")
         {
 
             List<Articulos> lista = new List<Articulos>();
@@ -24,10 +26,12 @@ namespace DiscosDatos
 
             try
             {
-                conexion = new SqlConnection(ConfigurationManager.AppSettings["cadenaConexion"]);
+                //conexion = new SqlConnection(ConfigurationManager.AppSettings["cadenaConexion"]);  // si lo haggo asi me da error , si lo dejo como esta  funciona OK  
+
+                conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_WEB_DB; integrated security=true";
                 comando.CommandType = System.Data.CommandType.Text;
                 comando.CommandText = "select A.Id,Codigo,Nombre,A.Descripcion ,ImagenUrl,Precio,A.IdCategoria,A.IdMarca,C.Descripcion Categoria, M.Descripcion Marca from ARTICULOS A ,CATEGORIAS C , MARCAS M";
-                
+
                 comando.Connection = conexion;
 
                 conexion.Open();
@@ -159,7 +163,7 @@ namespace DiscosDatos
                             consulta += "Precio = " + filtro;
                             break;
                     }
-                }          
+                }
                 else if (campo == "Nombre")
                 {
                     switch (criterio)
