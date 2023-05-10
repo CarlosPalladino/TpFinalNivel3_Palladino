@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Datos;
-
 using static System.Net.Mime.MediaTypeNames;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Soluciones
 {
@@ -22,7 +22,7 @@ namespace Soluciones
             SqlDataReader lector;
             try
             {
-                conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_WEB_DB; integrated security=true";
+                conexion = new SqlConnection(ConfigurationManager.AppSettings["cadenaConexion"]);
                 comando.CommandType = System.Data.CommandType.Text;
                 datos.setearConsulta("select Id ,UrlImagenPerfil,Nombre,Apellido ,Email,Password,Admin and ");
                 if (id != null)

@@ -14,22 +14,21 @@ namespace PresentacionFinal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtId.Enabled = false;
 
-            string id = Request.QueryString["id"] != null ? Request.QueryString["id"].ToString() : "";
-                if (Request.QueryString["id"] != null)
-            {
-                UsersMetodos usersMetodos = new UsersMetodos();
-                // List<Users> lista = usersMetodos.listar(id);
-                // Users seleccionado = lista[0];
-                Users seleccionado = (usersMetodos.listar(id))[0];
-                txtNombre.Text = seleccionado.Nombre;
-                txtApellido.Text = seleccionado.Apellido;
-                txtEmail.Text = seleccionado.Email;
-                txtPassword.Text = seleccionado.Pass;
-                txtImagen.Text = seleccionado.UrlImagenPerfil;
+            //string id = Request.QueryString["id"] != null ? Request.QueryString["id"].ToString() : "";
+            //    if (Request.QueryString["id"] != null)
+            //{
+            //    UsersMetodos usersMetodos = new UsersMetodos();
+            //    // List<Users> lista = usersMetodos.listar(id);
+            //    // Users seleccionado = lista[0];
+            //    Users seleccionado = (usersMetodos.listar(id))[0];
+            //    txtNombre.Text = seleccionado.Nombre;
+            //    txtApellido.Text = seleccionado.Apellido;
+            //    txtEmail.Text = seleccionado.Email;
+            //    txtPassword.Text = seleccionado.Pass;
+            //    txtImagen.Text = seleccionado.UrlImagenPerfil;
 
-            }
+            //}
 
 
 

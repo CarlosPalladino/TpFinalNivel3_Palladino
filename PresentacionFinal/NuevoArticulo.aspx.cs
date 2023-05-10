@@ -99,7 +99,7 @@ namespace PresentacionFinal
                 }
                 Response.Redirect("Catalogo.aspx", false);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Session.Add("Error.aspx", false);
 

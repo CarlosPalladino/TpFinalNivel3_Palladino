@@ -43,10 +43,7 @@
             
             <asp:UpdatePanel ID="UpdatePannel1" runat="server">
                 <ContentTemplate>
-                    <div class="mb-3">
-                        <label for="txtId" class="form-label">Id</label>
-                        <asp:TextBox runat="server" ID="txtId" CssClass="form-control" />
-                    </div>
+
                     <div class="mb-3">
                         <label class="form-label">Url Imagen</label>
                         <asp:TextBox ID="txtImagen" runat="server"  OnTextChanged="txtImagen_TextChanged" CssClass="form-control" />

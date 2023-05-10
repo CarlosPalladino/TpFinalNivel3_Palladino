@@ -1,9 +1,11 @@
 ﻿using Datos;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
@@ -22,7 +24,7 @@ namespace DiscosDatos
 
             try
             {
-                conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_WEB_DB; integrated security=true";
+                conexion = new SqlConnection(ConfigurationManager.AppSettings["cadenaConexion"]);
                 comando.CommandType = System.Data.CommandType.Text;
                 comando.CommandText = "select A.Id,Codigo,Nombre,A.Descripcion ,ImagenUrl,Precio,A.IdCategoria,A.IdMarca,C.Descripcion Categoria, M.Descripcion Marca from ARTICULOS A ,CATEGORIAS C , MARCAS M";
                 
