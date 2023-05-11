@@ -80,9 +80,10 @@ namespace PresentacionFinal
 
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                Session.Add("error.asppx", false);
+                Session.Add("error", ex);
+                Response.Redirect("error.aspx", false);
 
             }
         }

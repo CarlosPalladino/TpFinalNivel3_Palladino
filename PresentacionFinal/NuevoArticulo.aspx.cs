@@ -11,7 +11,7 @@ namespace PresentacionFinal
 {
     public partial class NuevoArticulo : System.Web.UI.Page
     {
-
+        public bool Visible { get; set; }
         public bool ConfirmarEliminacion { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,8 +24,8 @@ namespace PresentacionFinal
                 Response.Redirect("Login.aspx", false);
             }
 
-                
-        
+
+
 
             txtId.Enabled = false;
             try
@@ -69,10 +69,9 @@ namespace PresentacionFinal
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                Session.Add("Error.aspx", false);
+                Session.Add("error", ex); Response.Redirect("error.aspx", false);
             }
         }
 
@@ -99,10 +98,9 @@ namespace PresentacionFinal
                 }
                 Response.Redirect("Catalogo.aspx", false);
             }
-            catch (Exception)
+            catch (Exception ex) 
             {
-                Session.Add("Error.aspx", false);
-
+                Session.Add("error", ex); Response.Redirect("error.aspx", false); 
             }
 
 
@@ -117,10 +115,11 @@ namespace PresentacionFinal
             {
                 imgArticulo.ImageUrl = txtImagenUrl.Text;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+              Session.Add("error", ex);
+                Response.Redirect("error.aspx", false);
             }
 
         }

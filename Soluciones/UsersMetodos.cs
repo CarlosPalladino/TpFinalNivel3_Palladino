@@ -22,8 +22,8 @@ namespace Soluciones
             SqlDataReader lector;
             try
             {
-                conexion = new SqlConnection(ConfigurationManager.AppSettings["cadenaConexion"]);
-               
+                conexion.ConnectionString = ConfigurationManager.AppSettings["cadenaConexion"];
+
 
                 comando.CommandType = System.Data.CommandType.Text;
                 datos.setearConsulta("select Id ,UrlImagenPerfil,Nombre,Apellido ,Email,Password,Admin and ");

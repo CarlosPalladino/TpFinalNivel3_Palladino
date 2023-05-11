@@ -60,7 +60,7 @@ namespace PresentacionFinal
                 Users usuario = new Users();
                 usuario.Nombre = txtNombre.Text;
                 usuario.Pass = txtPassword.Text;
-                usuario.Email = txtEmail.Text; // aca iria el otro
+                usuario.Email = txtEmail.Text; 
                 usuario.UrlImagenPerfil = "pefil-" + usuario.Email + ".jpg";
                 usuario.Admin = chkAdmin.Checked;
                 txtImage.PostedFile.SaveAs(ruta + "perfil-" + usuario.Email + ".jpg");
@@ -96,8 +96,8 @@ namespace PresentacionFinal
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                Session.Add("error", ex);
+                Response.Redirect("error.aspx", false);
             }
         }
 
@@ -108,11 +108,12 @@ namespace PresentacionFinal
 
             imgNuevoPerfil.ImageUrl = txtImagen.Text;
             }
-            catch (Exception)
-            {
-
-                throw;
+            catch (Exception ex)
+            { 
+                Session.Add("error", ex); Response.Redirect("error.aspx", false);
             }
         }
+
+     
     }
 }

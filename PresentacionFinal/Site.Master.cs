@@ -15,8 +15,9 @@ namespace PresentacionFinal
             if(Page is Catalogo || Page is NuevoArticulo)
             {
                 Seguridad.Logueado(Session["usuarios"]);
-                Session.Add("error", "a donde queres ir  ?");
+              
             }
+           
 
         }
 

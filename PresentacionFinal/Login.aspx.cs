@@ -39,9 +39,10 @@ namespace PresentacionFinal
 
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                Session.Add("Error.aspx", false);
+                Session.Add("error", ex);
+                Response.Redirect("error.aspx", false);
 
             }
         }
