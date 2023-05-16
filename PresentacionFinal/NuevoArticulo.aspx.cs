@@ -11,31 +11,23 @@ namespace PresentacionFinal
 {
     public partial class NuevoArticulo : System.Web.UI.Page
     {
-        public bool Visible { get; set; }
         public bool ConfirmarEliminacion { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
-
-
             if (!Seguridad.Logueado(Session["usuarios"]))
-            {
+            
                 Response.Redirect("Login.aspx", false);
-            }
-
-
-
-
+            
             txtId.Enabled = false;
             try
             {
-                CategoriaLector categoria = new CategoriaLector();
-                MarcarLector marca = new MarcarLector();
-
+                
+                    CategoriaLector categoria = new CategoriaLector();
+                    MarcarLector marca = new MarcarLector();
 
                 if (!IsPostBack)
                 {
+
 
                     List<Marcas> list = marca.listar();
                     ddlMarca.DataSource = list;
@@ -51,7 +43,8 @@ namespace PresentacionFinal
                     ddlCategorias.DataTextField = "Descripcion";
                     ddlCategorias.DataBind();
                 }
-                if (Request.QueryString["id"] != null)
+                string id = Request.QueryString["id"] != null ? Request.QueryString["id"].ToString() : "";
+                if ( id !="" && !IsPostBack)
                 {
 
                     Metodos metodo = new Metodos();
@@ -86,15 +79,23 @@ namespace PresentacionFinal
                 nuevo.Descripcion = txtDescripcion.Text;
                 nuevo.ImagenUrl = txtImagenUrl.Text;
                 nuevo.Precio = decimal.Parse(txtPrecio.Text.ToString());
+                nuevo.Codigo = txtCodigo.Text;
+
                 nuevo.Marcas = new Marcas();
                 nuevo.Marcas.Id = int.Parse(ddlMarca.SelectedValue);
+
                 nuevo.Categoria = new Categorias();
                 nuevo.Categoria.Id = int.Parse(ddlCategorias.SelectedValue);
 
-                metodos.agregar(nuevo);
                 if (Request.QueryString["id"] != null)
                 {
+                    nuevo.Id = int.Parse(txtId.Text);
                     metodos.modificar(nuevo);
+                }
+                else
+                {
+                    metodos.agregar(nuevo);
+
                 }
                 Response.Redirect("Catalogo.aspx", false);
             }

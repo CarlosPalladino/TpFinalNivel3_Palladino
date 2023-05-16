@@ -18,8 +18,8 @@
                 <asp:DropDownList ID="ddlCampo" OnSelectedIndexChanged="dllCampo_SelectedIndexChanged"
                     runat="server" CssClass="form-control"
                     AutoPostBack="true">
-                    <asp:ListItem Text="Nombre"></asp:ListItem>
                     <asp:ListItem Text="Precio"></asp:ListItem>
+                    <asp:ListItem Text="Nombre"></asp:ListItem>
                     <asp:ListItem Text="Descripcion"></asp:ListItem>
                 </asp:DropDownList>
             </div>
@@ -42,7 +42,7 @@
         <div clkas="col-3">
             <div class="mb-3">
                 <asp:Button ID="btnBuscar" Text="Buscar" runat="server" CssClass="btn btn-primary" OnClick="btnBuscar_Click" />
-                <asp:Button ID="btnReset" Text="Buscar" runat="server" CssClass="btn btn-primary"  OnClick="btnReset_Click"/>
+                <asp:Button ID="btnReset" Text="Cancelar" runat="server" CssClass="btn btn-primary" OnClick="btnReset_Click" />
 
             </div>
         </div>
@@ -60,11 +60,21 @@
             <asp:BoundField HeaderText="Descripcion" DataField="Descripcion" />
             <asp:BoundField HeaderText="Marcas" DataField="Marcas" />
             <asp:BoundField HeaderText="Categoria" DataField="Categoria" />
-            <asp:BoundField HeaderText="Precio" DataField="Precio" />
+
             <asp:CommandField HeaderText="accion" ShowSelectButton="true" SelectText="Modificar" />
+            <asp:BoundField HeaderText="Precio" DataField="Precio" />
+            <asp:TemplateField HeaderText="Acción">
+                <ItemTemplate>
+                    <% if (DiscosDatos.Seguridad.Logueado(Session["usuarios"]))
+                        { %>
+                    <asp:HyperLink runat="server" NavigateUrl='<%# Eval("Id", "Detalle.aspx?Id={0}") %>' Text="Dellate" />
+                    <% } %>
+                </ItemTemplate>
+            </asp:TemplateField>
+
+            <%--            <asp:HyperLinkField HeaderText="Detalle" Text="Detalle" DataNavigateUrlFields="Id" DataNavigateUrlFormatString="Detalle.aspx?Id={0}" />--%>
         </Columns>
     </asp:GridView>
 
 
-    <a href="NuevoArticulo.aspx" class="btn btn-primary text-xl-center">Nuevo Articulo</a>
 </asp:Content>

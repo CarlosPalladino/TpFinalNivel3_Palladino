@@ -23,16 +23,14 @@ namespace DiscosDatos
             SqlConnection conexion = new SqlConnection();
             SqlCommand comando = new SqlCommand();
             SqlDataReader lector;
-            AccesoDatos datos = new AccesoDatos();
             try
             {
-                //conexion = new SqlConnection(ConfigurationManager.AppSettings["cadenaConexion"]);  // si lo haggo asi me da error , si lo dejo como esta  funciona OK  
                 conexion.ConnectionString =  ConfigurationManager.AppSettings["cadenaConexion"];
 
-                //conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_WEB_DB; integrated security=true";
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "select A.Id,Codigo,Nombre,A.Descripcion ,ImagenUrl,Precio,A.IdCategoria,A.IdMarca,C.Descripcion Categoria, M.Descripcion Marca from ARTICULOS A ,CATEGORIAS C , MARCAS M Where A.IdMarca = M.Id And A.IdCategoria = C.Id";
-
+                comando.CommandText = "select A.Id,Codigo,Nombre,A.Descripcion ,ImagenUrl,Precio,A.IdCategoria,A.IdMarca,C.Descripcion Categoria, M.Descripcion Marca from ARTICULOS A ,CATEGORIAS C , MARCAS M Where A.IdMarca = M.Id And A.IdCategoria = C.Id ";
+                if (id != "")
+                    comando.CommandText += "And A.Id = " + id;
                 comando.Connection = conexion;
 
                 conexion.Open();
@@ -105,7 +103,7 @@ namespace DiscosDatos
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("update ARTICULOS set Nombre = @nombre, Descripcion = @desc, ImagenUrl = @img, IdMarca = @idMarca, IdCategoria = @idCategoria, Precio = @precio Where Id = @id");
+                datos.setearConsulta("update ARTICULOS set Nombre = @nombre,Codigo = @codigo,Descripcion = @desc, ImagenUrl = @img, IdMarca = @idMarca, IdCategoria = @idCategoria, Precio = @precio Where Id = @id");
 
                 datos.setearParametro("@nombre", articulo.Nombre);
                 datos.setearParametro("@desc", articulo.Descripcion);
@@ -113,9 +111,10 @@ namespace DiscosDatos
                 datos.setearParametro("@idMarca", articulo.Marcas.Id);
                 datos.setearParametro("@idCategoria", articulo.Categoria.Id);
                 datos.setearParametro("@precio", articulo.Precio);
+                datos.setearParametro("@codigo", articulo.Codigo);
                 datos.setearParametro("@id", articulo.Id);
 
-                datos.ejecutarLectura();
+                datos.ejecutarAccion();
             }
             catch (Exception ex)
             {
@@ -133,7 +132,7 @@ namespace DiscosDatos
                 AccesoDatos datos = new AccesoDatos();
                 datos.setearConsulta("Delete from Articulos where Id= @id");
                 datos.setearParametro("@id", Id);
-                datos.ejecutarLectura();
+                datos.ejecutarAccion();
             }
             catch (Exception ex)
             {

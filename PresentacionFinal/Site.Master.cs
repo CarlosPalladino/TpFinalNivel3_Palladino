@@ -12,7 +12,7 @@ namespace PresentacionFinal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Page is Catalogo || Page is NuevoArticulo)
+            if( Page is NuevoArticulo || Page is Detalle )
             {
                 Seguridad.Logueado(Session["usuarios"]);
               
