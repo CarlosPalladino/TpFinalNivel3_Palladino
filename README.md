@@ -3,4 +3,4 @@ Este repositorio alberga mi proyecto, desarrollado con tecnologías de vanguardi
 
 En el aspecto de validación, he integrado cuidadosamente validaciones de rango y expresiones regulares (regex) para garantizar la integridad de los datos. Además, he aplicado las validaciones clásicas para mantener la consistencia y confiabilidad del sistema. Este enfoque holístico en tecnología y validación se refleja en un proyecto confiable y bien construido.
 
-Explora el código fuente y siéntete libre de contribuir. ¡#GitHubCommunity #OpenSourceDevelopment!
+Te into a verlo y descargarlo 
