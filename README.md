@@ -1,8 +1,12 @@
 
-# Trabajo Integrador hecho en el entorno de enseñanaza de C# nivel 3
->[!Note]
-Este repositorio alberga mi proyecto, desarrollado con tecnologías de vanguardia para ofrecer una experiencia robusta y eficiente. La implementación se basa en ASP.NET y Bootstrap 5 para una interfaz moderna, mientras que el núcleo utiliza el .NET Framework para un rendimiento sólido y escalable.
+# ¿Qué es TpFinalNivel3_Palladino ?
+Este proyecto es , como su nombre lo indica, una tp que esta creado para la evaluación de mis conocimientos y habilidades para crear un proyecto desde 0.
+## Descripcion
+Este proyecto es una web scrool de una tienda que permite visualizar los productos y su detalle.
+## Objetivo 
+El objetivo del proyecto y la cursada en general es aprender los fundamentos de ASP.Net , el uso de Bootstrap para el maquetado y simplificación estructural para crear una web responsive.
+## Tecnologia 
+Utilicé como Principales tecnologias **Asp.Net**, **Bootstrap** y bases de datos hecha en **SQL SERVER 19**
 
-En el aspecto de validación, he integrado cuidadosamente validaciones de rango y expresiones regulares (regex) para garantizar la integridad de los datos. Además, he aplicado las validaciones clásicas para mantener la consistencia y confiabilidad del sistema. Este enfoque holístico en tecnología y validación se refleja en un proyecto confiable y bien construido.
-
-Te invito a verlo y descargarlo 
+>[!NOTE]
+>Este proyecto cuenta con validaciones para admin , utilizando las reglas de acceso de asp.net.
